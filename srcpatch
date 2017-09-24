@@ -1,0 +1,16 @@
+*** This is the difference between this version of Cycles and the original
+*** version (the one with the bug):
+*** Starting from line 102 in "cycles.c":
+
+
+                    if (num_alive) {
+                        move_cycles(&cycle_list);
+                        Timer_Post(tr,
+                                TIME*num_alive/1000,           /* seconds */
+                                ((num_alive*TIME)%1000)*1000   /* micros  */
+                                );
+                    }
+                    else
+                        Timer_Post(tr,TIME/1000,(TIME%1000)*1000);
+                        
+                    continue;
