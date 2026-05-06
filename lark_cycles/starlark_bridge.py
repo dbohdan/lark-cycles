@@ -9,7 +9,7 @@ from starlark.eval import BuiltinFunction
 from starlark.eval.builtins import with_mutability, with_thread
 from starlark.eval.evaluator import call
 
-from engine import (
+from .engine import (
     DIR_UP,
     DIR_RIGHT,
     DIR_DOWN,

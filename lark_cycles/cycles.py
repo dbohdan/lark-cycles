@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 """
 Lark Cycles - Python/Tkinter/Starlark port of Rico Mariana's 1988 Amiga game
 Warrior Cycles.
@@ -6,9 +6,11 @@ Warrior Cycles.
 
 import argparse
 import tkinter as tk
-import os
+from importlib import resources
+from pathlib import Path
 
-from engine import (
+import players
+from .engine import (
     GameEngine,
     STATUS_NEED_NEW,
     STATUS_GOT_MOVE,
@@ -16,8 +18,8 @@ from engine import (
     STATUS_LOSER,
     STATUS_WINNER,
 )
-from display import GameDisplay
-from starlark_bridge import StarlarkPlayer, HumanPlayer
+from .display import GameDisplay
+from .starlark_bridge import StarlarkPlayer, HumanPlayer
 
 TICK_MS = 100
 
@@ -112,12 +114,8 @@ def main():
     if args.scale < 1:
         parser.error("scale must be at least 1")
 
-    player_dir = os.path.join(os.path.dirname(__file__), "players")
-    player_files = []
-    for i in range(1, 8):
-        path = os.path.join(player_dir, "player{}.star".format(i))
-        if os.path.exists(path):
-            player_files.append(path)
+    player_dir = resources.files(players)
+    player_files = sorted(player_dir.glob("*.star"))
 
     if len(player_files) < 5:
         player_files.append("human")

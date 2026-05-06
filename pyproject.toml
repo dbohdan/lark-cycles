@@ -1,0 +1,25 @@
+[project]
+name = "lark-cycles"
+version = "0.1.0"
+description = "Python/Tkinter/Starlark port of Rico Mariana's 1988 Amiga game Warrior Cycles."
+authors = [
+  {name = "D. Bohdan",email = "dbohdan@dbohdan.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "starlark",
+]
+
+[project.scripts]
+lark-cycles = "lark_cycles.cycles:main"
+
+[project.urls]
+repository = "https://github.com/dbohdan/lark-cycles"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["lark_cycles", "players"]

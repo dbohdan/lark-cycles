@@ -1,0 +1,23 @@
+version = 1
+revision = 3
+requires-python = ">=3.11"
+
+[[package]]
+name = "lark-cycles"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "starlark" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "starlark" }]
+
+[[package]]
+name = "starlark"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a8/cc/5409fee957477d500b12b15a8e4f29dfdf3b3a4a8734d5d025a323b30680/starlark-0.1.1.tar.gz", hash = "sha256:3e7318aa2622db123eeacc234ed4f3d5b0e94c36490d16388616c099fd1ac2d3", size = 213917, upload-time = "2026-05-06T13:28:11.602Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/55/68/21a68568a4367738138f8813fdf8b5ddd53efc1ed09df27be19d31ce3d08/starlark-0.1.1-py3-none-any.whl", hash = "sha256:5351a065bbb8c957a598cb05a985dd05f84ece4ed8b23871323fee54b12155f2", size = 86342, upload-time = "2026-05-06T13:28:13.312Z" },
+]
