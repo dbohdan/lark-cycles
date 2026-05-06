@@ -1,0 +1,13 @@
+/attic
+/build
+*.*cache*
+/.coverage
+/dist
+*.egg-info
+/help
+*.pyc
+__pycache__
+/.python-version
+*.sw*
+/.tox
+/venv*
